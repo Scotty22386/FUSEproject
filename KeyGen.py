@@ -1,6 +1,3 @@
-import random
-import string
-
 def generate_key():
 
     key = []
@@ -16,10 +13,10 @@ def generate_key():
     return key
     
     
-    
-def main():
-	key = generate_key()
-
-	f = open("Key.txt", "w")
-	f.write(key)
-	f.close()
+key = generate_key()
+keystring = "" 
+for x in key:
+  keystring += x 
+f = open("key.txt", "w")
+f.write(keystring)
+f.close()
