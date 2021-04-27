@@ -9,11 +9,11 @@ import errno
 from fuse import FUSE, FuseOSError, Operations
 
 def xorcrypt(inp):
-	xorkey = "!"
-	print(len(inp))
+	#xorkey = "!"
+	with open('/home/c435/temp/python-fuse-sample/Key.txt', 'r') as keyfile:
+   	 xorkey = keyfile.read(1)  	                  # pulls encryption character from Key file    
 	outstring = [ chr( a ^ ord(xorkey)) for a in inp]
 	out = bytes(''.join(outstring), 'utf-8')
-	print(len(out))
 	return out;
 	
 class Passthrough(Operations):
